@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('zip_code')->nullable();
             $table->string('pic')->nullable();
+            $table->boolean('is_activated')->default(false);
             $table->timestamps();
         });
     }

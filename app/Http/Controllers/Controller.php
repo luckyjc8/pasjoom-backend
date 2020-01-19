@@ -6,11 +6,12 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    public function jsonify($status,$msg,$code=200,$data=null){
+    public function jsonify($status,$msg=null,$code=200,$data=null){
     	$res = [
     		"status" => $status ? "OK" : "ERROR",
-    		"msg" => $msg
+    		
     	];
+    	if($msg){$res["msg"] = $msg;}
     	if($data){$res["data"] = $data;}
     	return response($res,$code);
     }

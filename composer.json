@@ -8,6 +8,7 @@
         "php": "^7.2",
         "kavist/rajaongkir": "1.1",
         "laravel/lumen-framework": "^6.0",
+        "league/flysystem": "^1.0",
         "midtrans/midtrans-php": "^2.0",
         "tymon/jwt-auth": "dev-develop"
     },
