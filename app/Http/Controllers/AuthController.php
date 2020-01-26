@@ -45,7 +45,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-          //validate incoming request 
+        //validate incoming request 
         $this->validate($request, [
             'email' => 'required|string',
             'password' => 'required|string',
@@ -57,7 +57,10 @@ class AuthController extends Controller
             return response()->json(['message' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken($token);
+        return response()->json([
+            'user' => Auth::user(),
+            'token' => $token
+        ],200);
     }
 
     protected function respondWithToken($token)
@@ -67,6 +70,12 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => Auth::factory()->getTTL() * 60
         ], 200);
+    }
+
+    public function checkToken(){
+        return response()->json([
+            'msg' => "success"
+        ],200);
     }
 
 
