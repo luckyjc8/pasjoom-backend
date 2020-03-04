@@ -20,7 +20,6 @@ class AuthController extends Controller
         $this->validate($request, [
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
-            'phone' => 'required',
             'username' => 'required'
         ]);
 
@@ -28,10 +27,8 @@ class AuthController extends Controller
             $user = new User;
             $user->email = $request->input('email');
             $user->username = $request->input('username');
-            $user->phone = $request->input('phone');
             $plainPassword = $request->input('password');
             $user->password = app('hash')->make($plainPassword);
-
             $user->save();
 
             //return successful response

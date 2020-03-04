@@ -23,7 +23,7 @@ class MidtransController extends Controller
 			    <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre> 
 
 			<!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->
-			    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="'.env(MIDTRANS_CLIENT_KEY).'"></script>
+			    <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="'.env("MIDTRANS_CLIENT_KEY").'"></script>
 			    <script type="text/javascript">
 			      document.getElementById("pay-button").onclick = function(){
 			        // SnapToken acquired from previous step
@@ -45,5 +45,5 @@ class MidtransController extends Controller
 			    </script>
 			  </body>
 		');
-	});
+	}
 }
